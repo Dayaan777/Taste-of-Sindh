@@ -1,0 +1,433 @@
+<!DOCTYPE html>
+<html lang="en">
+<head>
+<meta charset="UTF-8">
+<meta name="viewport" content="width=device-width, initial-scale=1.0">
+<title>Checkout | Taste of Sindh</title>
+
+<link href="https://fonts.googleapis.com/css2?family=Poppins:wght@400;600;700;800&display=swap" rel="stylesheet">
+
+<style>
+*{
+    margin:0;
+    padding:0;
+    box-sizing:border-box;
+}
+
+body{
+    font-family:'Poppins', Arial, sans-serif;
+    background:#f5f5f5;
+    color:#111;
+    overflow-x:hidden;
+}
+
+/* NAV */
+nav{
+    background:#000;
+    color:#fff;
+    padding:12px 30px;
+    display:flex;
+    align-items:center;
+    justify-content:space-between;
+    gap:25px;
+}
+
+.logo img{
+    height:65px;
+    width:auto;
+}
+
+.nav-links{
+    display:flex;
+    align-items:center;
+    gap:22px;
+    margin-left:auto;
+}
+
+.nav-links a{
+    color:#fff;
+    text-decoration:none;
+    font-size:17px;
+    font-weight:600;
+}
+
+/* TITLE */
+.title{
+    text-align:center;
+    margin:25px 0;
+    font-size:28px;
+}
+
+/* LAYOUT */
+.container{
+    display:flex;
+    gap:20px;
+    padding:0 30px 40px;
+}
+
+/* CART */
+.cart{
+    flex:2;
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.item{
+    display:flex;
+    justify-content:space-between;
+    align-items:center;
+    padding:15px 0;
+    border-bottom:1px solid #eee;
+}
+
+.item-left{
+    display:flex;
+    align-items:center;
+    gap:10px;
+}
+
+.item img{
+    width:60px;
+    height:60px;
+    border-radius:10px;
+    object-fit:cover;
+}
+
+/* SUMMARY */
+.summary{
+    flex:1;
+    background:#fff;
+    padding:20px;
+    border-radius:12px;
+    box-shadow:0 5px 15px rgba(0,0,0,0.08);
+}
+
+.row{
+    display:flex;
+    justify-content:space-between;
+    margin-bottom:10px;
+}
+
+.total{
+    font-weight:bold;
+    border-top:1px solid #eee;
+    padding-top:10px;
+}
+
+/* FORM */
+.checkout-form{
+    display:flex;
+    flex-direction:column;
+    gap:10px;
+    margin-top:15px;
+}
+
+.checkout-form input[type="text"],
+.checkout-form input[type="tel"],
+.checkout-form textarea,
+.checkout-form select {
+    width:100%;
+    padding:10px;
+    margin:8px 0;
+    border:1px solid #ddd;
+    border-radius:8px;
+    outline:none;
+}
+
+.payment {
+  margin-top: 15px;
+  padding: 12px;
+  border: 1px solid #eee;
+  border-radius: 10px;
+  background: #fafafa;
+}
+
+.payment h3 {
+  margin-bottom: 10px;
+  font-size: 16px;
+}
+
+.payment-option {
+  display: flex;
+  align-items: center;
+  gap: 10px;
+  padding: 8px;
+  border-radius: 8px;
+  cursor: pointer;
+  transition: 0.2s;
+}
+
+.payment-option:hover {
+  background: #f0f0f0;
+}
+
+.payment-option input {
+  accent-color: #ff3d00;
+}
+
+.payment-option img {
+  width: 26px;
+  height: 26px;
+  object-fit: contain;
+}
+
+/* BUTTON */
+button {
+  padding: 12px;
+  border: none;
+  background: #ff3d00;
+  color: white;
+  font-size: 16px;
+  border-radius: 6px;
+  cursor: pointer;
+  transition: 0.3s;
+}
+
+button:hover {
+  background: #e63600;
+}
+
+/* RESPONSIVE */
+@media(max-width: 900px){
+  .container {
+    flex-direction: column;
+  }
+}
+
+footer{
+    background:#000;
+    color:#fff;
+    padding:18px;
+    text-align:center;
+    margin-top:40px;
+}
+
+.footer{
+    background:#000000;
+    color:#fff;
+    margin-top:60px;
+}
+
+.footer-container{
+    width:90%;
+    max-width:1200px;
+    margin:auto;
+    padding:60px 0 40px;
+
+    display:grid;
+    grid-template-columns:repeat(auto-fit,minmax(220px,1fr));
+    gap:40px;
+}
+
+.footer-section h3{
+    color:#ffb703;
+    margin-bottom:15px;
+    font-size:1.2rem;
+}
+
+.footer-section p{
+    color:#ccc;
+    line-height:1.8;
+}
+
+.footer-section a{
+    display:block;
+    color:#ccc;
+    text-decoration:none;
+    margin:10px 0;
+    transition:0.3s;
+}
+
+.footer-section a:hover{
+    color:#ffb703;
+    padding-left:5px;
+}
+
+.footer-logo{
+    height:65px;
+    width:auto;
+    display:block;
+    cursor:pointer;
+}
+
+.footer-bottom{
+    border-top:1px solid rgba(255,255,255,0.1);
+    text-align:center;
+    padding:20px;
+    color:#999;
+    font-size:0.9rem;
+}
+
+/* Mobile */
+@media(max-width:768px){
+
+    .footer-container{
+        text-align:center;
+    }
+
+    .footer-logo{
+        margin:0 auto 15px;
+        display:block;
+    }
+
+}
+</style>
+
+</head>
+
+<body>
+
+<nav>
+    <div class="logo">
+        <a href="index.html">
+            <img src="logo.png">
+        </a>
+    </div>
+
+    <div class="nav-links">
+        <a href="index.html">Home</a>
+        <a href="restaurants.html">Restaurants</a>
+        <a href="top picks.html">Top Picks</a>
+        <a href="contact.html">Contact</a>
+        <a href="checkout.html">🛒</a>
+    </div>
+</nav>
+
+<h1 class="title">Checkout</h1>
+
+<div class="container">
+
+    <!-- CART -->
+    <div class="cart">
+        <div class="item">
+            <div class="item-left">
+                <img src="images/chapli-kabab.jpg">
+                <div>
+                    <h4>Chapli Kabab</h4>
+                    <p>Qty: 2</p>
+                </div>
+            </div>
+            <span>Rs 200</span>
+        </div>
+
+        <div class="item">
+            <div class="item-left">
+                <img src="images/beef-biryani.jpg">
+                <div>
+                    <h4>Beef Biryani</h4>
+                    <p>Qty: 1</p>
+                </div>
+            </div>
+            <span>Rs 260</span>
+        </div>
+    </div>
+
+    <!-- SUMMARY -->
+    <div class="summary">
+
+        <div class="row"><span>Subtotal</span><span>Rs 460</span></div>
+        <div class="row"><span>Delivery</span><span>Rs 100</span></div>
+        <div class="row total"><span>Total</span><span>Rs 560</span></div>
+
+        <!-- SINGLE FORM ONLY -->
+        <form class="checkout-form" action="success.html" method="GET">
+
+            <input type="text" placeholder="Full Name" required>
+            <input type="text" placeholder="Phone Number" required>
+            <textarea placeholder="Delivery Address" required></textarea>
+
+            <div class="payment">
+                <h3>Payment Method</h3>
+
+                <label class="payment-option">
+                    <input type="radio" name="payment" checked>
+                    <img src="https://images.deliveryhero.io/image/foodpanda/payment_icons/payment_method/ic-payments-payment_on_delivery-xs.png">
+                    Cash on Delivery
+                </label>
+
+                <label class="payment-option">
+                    <input type="radio" name="payment">
+                    <img src="https://images.deliveryhero.io/image/foodpanda/payment_icons/payment_schema/ic-payments-Mastercard-xs.png">
+                    Card Payment
+                </label>
+
+                <label class="payment-option">
+                    <input type="radio" name="payment">
+                   <img src="https://images.deliveryhero.io/image/foodpanda/payment_icons/payment_method/ic-payments-jazzcash_wallet-xs.png">
+                    JazzCash
+                </label>
+
+                <label class="payment-option">
+                    <input type="radio" name="payment">
+                    <img src="https://images.deliveryhero.io/image/foodpanda/payment_icons/payment_method/ic-payments-antfinancial_easypaisa-xs.png">
+                    EasyPaisa
+                </label>
+
+            </div>
+
+            <button type="submit" class="place-order-btn">
+                Place Order
+            </button>
+
+        </form>
+
+    </div>
+
+</div>
+
+<footer class="footer">
+
+    <div class="footer-container">
+
+        <div class="footer-section">
+
+<div class="logo">
+        <a href="index.html">
+            <img src="logo.png" alt="Taste of Sindh Logo">
+        </a>
+    </div>          &nbsp;
+            <p>
+                Discover the best restaurants, delicious meals, and exclusive food deals across Sindh.
+            </p>
+
+        </div>
+
+        <div class="footer-section">
+            <h3>Quick Links</h3>
+
+            <a href="../index.html">Home</a>
+            <a href="../restaurants.html">Restaurants</a>
+            <a href="../top picks.html">Top Picks</a>
+            <a href="../contact.html">Contact</a>
+        </div>
+
+        <div class="footer-section">
+            <h3>Support</h3>
+
+            <a href="#">FAQs</a>
+            <a href="#">Privacy Policy</a>
+            <a href="#">Terms & Conditions</a>
+            <a href="#">Help Center</a>
+        </div>
+
+        <div class="footer-section">
+            <h3>Follow Us</h3>
+
+            <a href="#">Facebook</a>
+            <a href="#">Instagram</a>
+            <a href="#">TikTok</a>
+            <a href="#">Whatsapp</a>
+        </div>
+
+    </div>
+
+    <div class="footer-bottom">
+        <p>© 2026 Taste of Sindh. All Rights Reserved.</p>
+    </div>
+
+</footer>
+
+</body>
+</html>

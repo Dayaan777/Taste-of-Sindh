@@ -1,0 +1,361 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Taste of Sindh - Admin Dashboard</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:#f5f5f5;
+        }
+
+        /* SIDEBAR */
+        .sidebar{
+            width:250px;
+            height:100vh;
+            position:fixed;
+            left:0;
+            top:0;
+            background:#000;
+            color:#fff;
+            padding:25px 18px;
+        }
+
+        .logo{
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        .logo img{
+            width:80px;
+            height:40px;
+            margin-bottom:10px;
+        }
+
+        .logo h2{
+            font-size:13px;
+            letter-spacing:2px;
+        }
+
+        .menu a{
+            display:block;
+            color:#fff;
+            text-decoration:none;
+            padding:12px;
+            margin-bottom:8px;
+            border-radius:8px;
+            font-size:14px;
+        }
+
+        .menu a:hover{
+            background:#222;
+        }
+
+        .menu a.active{
+            background:#fff;
+            color:#000;
+            font-weight:bold;
+        }
+
+        /* MAIN */
+        .main{
+            margin-left:250px;
+            padding:25px;
+        }
+
+        /* TOPBAR */
+        .topbar{
+            background:#fff;
+            border:1px solid #ddd;
+            padding:18px;
+            border-radius:14px;
+        }
+
+        .topbar h1{
+            font-size:18px;
+        }
+
+        .topbar span{
+            font-size:13px;
+            color:#666;
+        }
+
+        /* QUICK */
+        .quick{
+            margin-top:20px;
+            display:flex;
+            gap:10px;
+        }
+
+        .quick a{
+            background:#000;
+            color:#fff;
+            text-decoration:none;
+            padding:10px 14px;
+            border-radius:10px;
+            font-size:13px;
+        }
+
+        .quick a:hover{
+            background:#222;
+        }
+
+        /* STATS */
+        .stats{
+            display:grid;
+            grid-template-columns:repeat(4,1fr);
+            gap:15px;
+            margin-top:20px;
+        }
+
+        .card{
+            background:#fff;
+            border:1px solid #ddd;
+            border-radius:14px;
+            padding:18px;
+            transition:0.2s;
+        }
+
+        .card:hover{
+            transform:translateY(-3px);
+        }
+
+        .card h3{
+            font-size:12px;
+            color:#666;
+        }
+
+        .card p{
+            font-size:22px;
+            font-weight:bold;
+            margin-top:8px;
+        }
+
+        .small{
+            font-size:12px;
+            color:#888;
+            margin-top:5px;
+        }
+
+        /* GRAPH (LINE CHART UPGRADE) */
+        .graph-box{
+            margin-top:25px;
+            background:#fff;
+            border:1px solid #ddd;
+            border-radius:14px;
+            padding:20px;
+        }
+
+        .graph-header{
+            display:flex;
+            justify-content:space-between;
+            margin-bottom:20px;
+        }
+
+        .line-chart{
+            position:relative;
+            height:220px;
+        }
+
+        .chart-svg{
+            width:100%;
+            height:100%;
+        }
+
+        .labels{
+            position:absolute;
+            bottom:0;
+            width:100%;
+            display:flex;
+            justify-content:space-between;
+            font-size:12px;
+            color:#666;
+            padding:0 5px;
+        }
+
+        /* TABLE */
+        .table-box{
+            margin-top:25px;
+            background:#fff;
+            border:1px solid #ddd;
+            border-radius:14px;
+            padding:20px;
+        }
+
+        table{
+            width:100%;
+            border-collapse:collapse;
+        }
+
+        th, td{
+            padding:12px;
+            font-size:14px;
+            border-bottom:1px solid #eee;
+        }
+
+        th{
+            background:#000;
+            color:#fff;
+        }
+
+        /* STATUS */
+        .status{
+            padding:5px 10px;
+            border-radius:6px;
+            font-size:12px;
+            color:#fff;
+        }
+
+        .pending{ background:#666; }
+        .completed{ background:#000; }
+        .cancelled{ background:#999; }
+
+    </style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        <a href="../index.html">
+            <img src="../images/logo.jpg" alt="Logo">
+        </a>
+
+        <h2>TASTE OF SINDH</h2>
+
+    </div>
+
+    <div class="menu">
+        <a href="dashboard.html" class="active">Dashboard</a>
+        <a href="orders.html">Orders</a>
+        <a href="products.html">Products</a>
+        <a href="customers.html">Customers</a>
+        <a href="settings.html">Settings</a>
+        <a href="../index.html">View Website</a>
+    </div>
+
+</div>
+
+<div class="main">
+
+    <div class="topbar">
+        <h1>Dashboard Overview</h1>
+        <span>Admin Panel</span>
+    </div>
+
+    <div class="quick">
+        <a href="orders.html">Orders</a>
+        <a href="products.html">Products</a>
+        <a href="customers.html">Customers</a>
+        <a href="settings.html">Settings</a>
+    </div>
+
+    <div class="stats">
+
+        <div class="card">
+            <h3>Total Orders</h3>
+            <p>1,245</p>
+            <div class="small">All time sales</div>
+        </div>
+
+        <div class="card">
+            <h3>Pending</h3>
+            <p>180</p>
+            <div class="small">Needs action</div>
+        </div>
+
+        <div class="card">
+            <h3>Completed</h3>
+            <p>950</p>
+            <div class="small">Successful orders</div>
+        </div>
+
+        <div class="card">
+            <h3>Cancelled</h3>
+            <p>115</p>
+            <div class="small">Order drops</div>
+        </div>
+
+    </div>
+
+    <!-- LINE GRAPH -->
+    <div class="graph-box">
+
+        <div class="graph-header">
+            <h2>Revenue Overview</h2>
+            <span>Static Line Graph</span>
+        </div>
+
+        <div class="line-chart">
+
+            <svg viewBox="0 0 600 200" class="chart-svg">
+
+                <polyline
+                    points="0,140 100,110 200,70 300,100 400,30 500,60 600,20"
+                    fill="none"
+                    stroke="#000"
+                    stroke-width="3"
+                />
+
+                <circle cx="0" cy="140" r="4" fill="#000"/>
+                <circle cx="100" cy="110" r="4" fill="#000"/>
+                <circle cx="200" cy="70" r="4" fill="#000"/>
+                <circle cx="300" cy="100" r="4" fill="#000"/>
+                <circle cx="400" cy="30" r="4" fill="#000"/>
+                <circle cx="500" cy="60" r="4" fill="#000"/>
+                <circle cx="600" cy="20" r="4" fill="#000"/>
+
+            </svg>
+
+            <div class="labels">
+                <span>Jan</span>
+                <span>Feb</span>
+                <span>Mar</span>
+                <span>Apr</span>
+                <span>May</span>
+                <span>Jun</span>
+            </div>
+
+        </div>
+
+    </div>
+
+    <div class="table-box">
+
+        <h2 style="margin-bottom:15px;">Recent Orders</h2>
+
+        <table>
+
+            <tr>
+                <th>ID</th>
+                <th>Customer</th>
+                <th>Product</th>
+                <th>Amount</th>
+                <th>Status</th>
+            </tr>
+
+            <tr>
+                <td>#101</td>
+                <td>Ali Khan</td>
+                <td>Biryani</td>
+                <td>Rs. 1200</td>
+                <td><span class="status pending">Pending</span></td>
+            </tr>
+
+        </table>
+
+    </div>
+
+</div>
+
+</body>
+</html>

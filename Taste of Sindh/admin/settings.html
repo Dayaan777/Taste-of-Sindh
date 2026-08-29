@@ -1,0 +1,258 @@
+<!DOCTYPE html>
+<html>
+<head>
+    <title>Settings - Taste of Sindh Admin</title>
+
+    <style>
+
+        *{
+            margin:0;
+            padding:0;
+            box-sizing:border-box;
+            font-family:Arial, sans-serif;
+        }
+
+        body{
+            background:#f5f5f5;
+        }
+
+        .sidebar{
+            width:250px;
+            height:100vh;
+            position:fixed;
+            left:0;
+            top:0;
+            background:#000;
+            color:#fff;
+            padding:25px 18px;
+        }
+
+        .logo{
+            text-align:center;
+            margin-bottom:30px;
+        }
+
+        .logo img{
+            width:80px;
+            height:40px;
+            margin-bottom:10px;
+        }
+
+        .logo h2{
+            font-size:13px;
+            letter-spacing:2px;
+        }
+
+        .menu a{
+            display:block;
+            color:#fff;
+            text-decoration:none;
+            padding:12px;
+            margin-bottom:8px;
+            border-radius:8px;
+            font-size:14px;
+        }
+
+        .menu a:hover{
+            background:#222;
+        }
+
+        .menu a.active{
+            background:#fff;
+            color:#000;
+            font-weight:bold;
+        }
+
+     
+        .main{
+            margin-left:250px;
+            padding:25px;
+        }
+
+        
+        .topbar{
+            background:#fff;
+            border:1px solid #ddd;
+            padding:18px;
+            border-radius:14px;
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+        }
+
+        .topbar h1{
+            font-size:18px;
+        }
+
+        .topbar span{
+            font-size:13px;
+            color:#666;
+        }
+
+        
+        .settings-box{
+            margin-top:25px;
+            display:grid;
+            grid-template-columns:1fr 1fr;
+            gap:15px;
+        }
+
+        .card{
+            background:#fff;
+            border:1px solid #ddd;
+            border-radius:14px;
+            padding:20px;
+        }
+
+        .card h2{
+            font-size:15px;
+            margin-bottom:15px;
+        }
+
+        input{
+            width:100%;
+            padding:12px;
+            margin-bottom:10px;
+            border:1px solid #ddd;
+            border-radius:8px;
+            font-size:14px;
+        }
+
+        button{
+            padding:10px 14px;
+            background:#000;
+            color:#fff;
+            border:none;
+            border-radius:8px;
+            cursor:pointer;
+            font-size:13px;
+        }
+
+        button:hover{
+            background:#222;
+        }
+
+        
+        .toggle{
+            display:flex;
+            justify-content:space-between;
+            align-items:center;
+            padding:10px 0;
+            border-bottom:1px solid #eee;
+            font-size:14px;
+        }
+
+        .switch{
+            width:40px;
+            height:20px;
+            background:#ddd;
+            border-radius:20px;
+            position:relative;
+        }
+
+        .switch::after{
+            content:"";
+            width:16px;
+            height:16px;
+            background:#000;
+            position:absolute;
+            top:2px;
+            left:2px;
+            border-radius:50%;
+        }
+
+    </style>
+</head>
+
+<body>
+
+<div class="sidebar">
+
+    <div class="logo">
+
+        <a href="../index.html">
+            <img src="../images/logo.jpg" alt="Logo">
+        </a>
+
+        <h2>TASTE OF SINDH</h2>
+
+    </div>
+
+    <div class="menu">
+        <a href="dashboard.html">Dashboard</a>
+        <a href="orders.html">Orders</a>
+        <a href="products.html">Products</a>
+        <a href="customers.html">Customers</a>
+        <a href="settings.html" class="active">Settings</a>
+        <a href="../index.html">View Website</a>
+    </div>
+
+</div>
+
+
+<div class="main">
+
+
+    <div class="topbar">
+        <div>
+            <h1>Settings</h1>
+            <span>Manage your admin panel configuration</span>
+        </div>
+    </div>
+
+    
+    <div class="settings-box">
+
+        
+        <div class="card">
+
+            <h2>Admin Profile</h2>
+
+            <input type="text" placeholder="Admin Name">
+            <input type="email" placeholder="Email Address">
+            <input type="text" placeholder="Phone Number">
+
+            <button>Save Changes</button>
+
+        </div>
+
+        <div class="card">
+
+            <h2>Change Password</h2>
+
+            <input type="password" placeholder="Current Password">
+            <input type="password" placeholder="New Password">
+            <input type="password" placeholder="Confirm Password">
+
+            <button>Update Password</button>
+
+        </div>
+
+       
+        <div class="card">
+
+            <h2>Website Settings</h2>
+
+            <div class="toggle">
+                <span>Maintenance Mode</span>
+                <div class="switch"></div>
+            </div>
+
+            <div class="toggle">
+                <span>Allow Orders</span>
+                <div class="switch"></div>
+            </div>
+
+            <div class="toggle">
+                <span>Email Notifications</span>
+                <div class="switch"></div>
+            </div>
+
+        </div>
+
+    </div>
+
+</div>
+
+</body>
+</html>
