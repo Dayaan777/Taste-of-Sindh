@@ -1,1 +1,7 @@
-import Link from 'next/link';export default function Success(){return <main className="section container empty"><span className="eyebrow">Order received</span><h1 style={{fontSize:64,color:'var(--primary)'}}>Shukriya.</h1><p className="muted">Your mock order is in the kitchen. This portfolio flow is ready to connect to a real backend later.</p><div className="actions" style={{justifyContent:'center'}}><Link href="/track-order" className="btn">Track order</Link><Link href="/restaurants" className="btn outline">Order more</Link></div></main>}
+'use client'
+import Link from 'next/link'
+import { Suspense } from 'react'
+import { useSearchParams } from 'next/navigation'
+import { SiteHeader } from '@/components/site-header'
+function Confirmation() { const params = useSearchParams(); const id = params.get('order') || 'TS-DEMO'; return <main className="success-page shell"><span className="success-mark">✓</span><span className="eyebrow">Order received</span><h1>Shukriya.</h1><p className="lede">Your order <strong>{id}</strong> is in the kitchen. We’ll keep you posted as it makes its way to you.</p><div className="success-actions"><Link href={`/track-order?order=${id}`} className="primary-button">Track your order</Link><Link href="/restaurants" className="secondary-button">Order something else</Link></div></main> }
+export default function SuccessPage() { return <><SiteHeader /><Suspense fallback={<main className="success-page shell"><p>Loading confirmation…</p></main>}><Confirmation /></Suspense></> }
